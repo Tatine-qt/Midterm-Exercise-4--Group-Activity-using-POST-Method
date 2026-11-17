@@ -1,0 +1,29 @@
+<?php
+// Sample POST data (online compilers can't submit forms)
+// Delete these 2 lines if you run it on XAMPP
+$_SERVER['REQUEST_METHOD'] = "POST";
+$_POST['name'] = "Juan Dela Cruz";
+$_POST['course'] = "BSIT";
+?>
+
+<!DOCTYPE html>
+<html>
+<head><title>POST Method Activity</title></head>
+<body>
+  <h2>Student Information</h2>
+
+  <form method="post" action="">
+    Name: <input type="text" name="name"><br><br>
+    Course: <input type="text" name="course"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <?php
+  if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['name']) && isset($_POST['course'])) {
+      echo "<h3>Result:</h3>";
+      echo "Name: " . htmlspecialchars($_POST['name']) . "<br>";
+      echo "Course: " . htmlspecialchars($_POST['course']);
+  }
+  ?>
+</body>
+</html>
